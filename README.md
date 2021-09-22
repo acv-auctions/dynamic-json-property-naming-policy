@@ -44,10 +44,24 @@ public record WeatherForecast
 
 ### In JsonSerializerOptions
 
+If you just want to use `JsonSerializerOptions` that apply the correct property naming use the following:
+
+```cs
+return new JsonResult(result, HttpContext.GetJsonSerializerOptions());
+```
+
+Otherwise, you can just reference the `JsonNamingPolicy` to add additional options:
+
 ```cs
 var namingPolicy = HttpContext.GetJsonNamingPolicy();
-return new JsonResult(result, new JsonSerializerOptions { PropertyNamingPolicy = namingPolicy });
+return new JsonResult(result, new JsonSerializerOptions
+{
+    PropertyNamingPolicy = namingPolicy,
+    NumberHandling = JsonNumberHandling.AllowReadingFromString
+});
 ```
+
+
 
 This allows you to send a response back to the requestor that will respect their request for a specific serialization strategy.
 
