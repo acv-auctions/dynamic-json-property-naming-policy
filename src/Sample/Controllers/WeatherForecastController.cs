@@ -34,7 +34,7 @@ public class WeatherForecastController : ControllerBase
         })
         .ToArray();
 
-        return new JsonResult(result, new JsonSerializerOptions { PropertyNamingPolicy = namingPolicy });
+        return new JsonResult(result, HttpContext.GetJsonSerializerOptions());
     }
 
     [HttpPost]
