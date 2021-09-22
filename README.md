@@ -1,5 +1,7 @@
 # DynamicJsonPropertyNamingPolicy
 
+![Nuget](https://img.shields.io/nuget/v/DynamicJsonPropertyNamingPolicy)
+
 A `System.Text.Json.JsonNamingPolicy` that reacts to request headers.
 
 ## Usage
