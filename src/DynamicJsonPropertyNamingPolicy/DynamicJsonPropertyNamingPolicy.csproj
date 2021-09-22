@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <Description>A System.Text.Json.JsonNamingPolicy that reacts to request headers.</Description>
+        <Copyright>Copyright (c) $([System.DateTime]::Now.ToString(yyyy)), ACV Auctions, Inc.</Copyright>
+        <Authors>Adam Weiss; ACV Auctions, Inc.</Authors>
+        <TargetFrameworks>net5.0;net6.0</TargetFrameworks>
+        <AssemblyName>DynamicJsonPropertyNamingPolicy</AssemblyName>
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+        <Version>0.0.1</Version>
+        <RootNamespace>DynamicJsonPropertyNamingPolicy</RootNamespace>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <DocumentationFile>bin\$(Configuration)\DynamicJsonPropertyNamingPolicy.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Label="SourceLink">
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+    <ItemGroup Label="SourceLink">
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    </ItemGroup>
+
+    <PropertyGroup Label="NuspecProperties">
+        <NeutralLanguage>en-US</NeutralLanguage>
+        <AssemblyTitle>DynamicJsonPropertyNamingPolicy</AssemblyTitle>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <PackageIcon>acv.png</PackageIcon>
+        <!-- This can be added back in when https://github.com/NuGet/NuGet.Client/pull/4268 is released -->
+        <!-- <PackageReadmeFile>README.md</PackageReadmeFile> -->
+        <PackageProjectUrl>https://github.com/acv-auctions/dynamic-json-property-naming-policy</PackageProjectUrl>
+        <PackageTags>dotnetcore;core;netstandard;serialization;system.text.json;json</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\images\acv.png" Pack="true" PackagePath="\"/>
+        <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+      <PackageReference Include="System.Text.Json" Version="5.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="DynamicJsonPropertyNamingPolicy.Tests" />
+    </ItemGroup>
+
+</Project>
