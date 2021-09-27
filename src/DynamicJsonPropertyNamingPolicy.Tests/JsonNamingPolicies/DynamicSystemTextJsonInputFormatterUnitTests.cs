@@ -69,9 +69,8 @@ namespace DynamicJsonPropertyNamingPolicy.Tests.JsonNamingPolicies
             DynamicSystemTextJsonInputFormatter formatter = new();
 
             // Act
-            await Assert.ThrowsAsync<ArgumentNullException>(async () => await formatter.ReadRequestBodyAsync(null, encoding));
-
             // Assert
+            await Assert.ThrowsAsync<ArgumentNullException>(async () => await formatter.ReadRequestBodyAsync(null, encoding));
         }
 
         [Fact]
