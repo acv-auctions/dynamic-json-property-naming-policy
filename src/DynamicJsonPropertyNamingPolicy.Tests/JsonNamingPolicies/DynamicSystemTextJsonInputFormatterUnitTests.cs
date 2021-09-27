@@ -1,5 +1,8 @@
+using System;
 using System.IO;
 using System.Text;
+using System.Threading;
+using DynamicJsonPropertyNamingPolicy.JsonNamingPolicies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -7,10 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
-using DynamicJsonPropertyNamingPolicy.JsonNamingPolicies;
 using Xunit;
-using System;
-using System.Threading;
 
 namespace DynamicJsonPropertyNamingPolicy.Tests.JsonNamingPolicies
 {

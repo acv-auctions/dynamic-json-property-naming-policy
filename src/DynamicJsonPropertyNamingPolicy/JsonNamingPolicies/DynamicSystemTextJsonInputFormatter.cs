@@ -1,12 +1,12 @@
+using System;
 using System.Text;
 using System.Threading.Tasks;
+using DynamicJsonPropertyNamingPolicy.Extensions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using DynamicJsonPropertyNamingPolicy.Extensions;
-using System;
-using Microsoft.AspNetCore.Http;
 
 namespace DynamicJsonPropertyNamingPolicy.JsonNamingPolicies
 {
