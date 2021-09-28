@@ -1,10 +1,12 @@
+using System;
 using System.Text;
 using System.Threading.Tasks;
+using DynamicJsonPropertyNamingPolicy.Extensions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using DynamicJsonPropertyNamingPolicy.Extensions;
 
 namespace DynamicJsonPropertyNamingPolicy.JsonNamingPolicies
 {
@@ -25,9 +27,26 @@ namespace DynamicJsonPropertyNamingPolicy.JsonNamingPolicies
         /// <inheritdoc />
         public override async Task<InputFormatterResult> ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
         {
-            ILogger<SystemTextJsonInputFormatter> inputLogger = context.HttpContext.RequestServices.GetRequiredService<ILogger<SystemTextJsonInputFormatter>>();
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
+
+            if (encoding == null)
+            {
+                throw new ArgumentNullException(nameof(encoding));
+            }
+
+            HttpContext httpContext = context.HttpContext;
+
+            if (httpContext.RequestAborted.IsCancellationRequested)
+            {
+                return InputFormatterResult.NoValue();
+            }
+
+            ILogger<SystemTextJsonInputFormatter> inputLogger = httpContext.RequestServices.GetRequiredService<ILogger<SystemTextJsonInputFormatter>>();
             JsonOptions options = new();
-            options.JsonSerializerOptions.PropertyNamingPolicy = context.HttpContext.GetJsonNamingPolicy();
+            options.JsonSerializerOptions.PropertyNamingPolicy = httpContext.GetJsonNamingPolicy();
 
             TextInputFormatter formatter = new SystemTextJsonInputFormatter(options, inputLogger);
             InputFormatterResult result = await formatter.ReadRequestBodyAsync(context, encoding);
