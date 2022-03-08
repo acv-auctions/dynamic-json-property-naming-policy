@@ -61,8 +61,6 @@ return new JsonResult(result, new JsonSerializerOptions
 });
 ```
 
-
-
 This allows you to send a response back to the requestor that will respect their request for a specific serialization strategy.
 
 ## Example
