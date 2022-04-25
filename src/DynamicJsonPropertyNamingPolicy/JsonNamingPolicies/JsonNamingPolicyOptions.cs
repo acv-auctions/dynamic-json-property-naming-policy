@@ -20,7 +20,7 @@ namespace DynamicJsonPropertyNamingPolicy.JsonNamingPolicies
         public static readonly JsonNamingPolicy SnakeCase = new SnakeCaseJsonNamingPolicy();
 
         /// <summary>
-        /// ASP.NET provides an internal <see cref="System.Text.Json.JsonCamelCaseNamingPolicy" /> that can be used.
+        /// ASP.NET provides an internal <see cref="System.Text.Json.JsonNamingPolicy" /> that can be used.
         /// </summary>
         public static readonly JsonNamingPolicy CamelCase = JsonNamingPolicy.CamelCase;
     }
