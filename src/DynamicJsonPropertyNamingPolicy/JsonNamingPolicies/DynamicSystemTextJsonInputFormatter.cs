@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 namespace DynamicJsonPropertyNamingPolicy.JsonNamingPolicies
 {
     /// <summary>
-    /// A <cref>Microsoft.AspNetCore.Mvc.Formatters.TextInputFormatter</cref> that uses <cref>DynamicJsonPropertyNamingPolicy.Extensions.HttpContextExtensions.GetJsonNamingPolicy</cref> to determine what <cref>System.Text.Json.JsonSerializerOptions.PropertyNamingPolicy</cref> to use.
+    /// A <see cref="Microsoft.AspNetCore.Mvc.Formatters.TextInputFormatter" /> that uses <see cref="DynamicJsonPropertyNamingPolicy.Extensions.HttpContextExtensions.GetJsonNamingPolicy" /> to determine what <see cref="System.Text.Json.JsonSerializerOptions.PropertyNamingPolicy" /> to use.
     /// </summary>
     public class DynamicSystemTextJsonInputFormatter : TextInputFormatter
     {

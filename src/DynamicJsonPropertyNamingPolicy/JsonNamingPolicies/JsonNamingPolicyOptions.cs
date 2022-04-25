@@ -3,7 +3,7 @@ using System.Text.Json;
 namespace DynamicJsonPropertyNamingPolicy.JsonNamingPolicies
 {
     /// <summary>
-    /// A collection of options that can be used when a <cref>System.Text.Json.JsonNamingPolicy</cref> is needed.
+    /// A collection of options that can be used when a <see cref="System.Text.Json.JsonNamingPolicy" /> is needed.
     /// </summary>
     public static class JsonNamingPolicyOptions
     {
@@ -15,12 +15,12 @@ namespace DynamicJsonPropertyNamingPolicy.JsonNamingPolicies
         public static readonly JsonNamingPolicy? PascalCase = null;
 
         /// <summary>
-        /// Create a single <cref>DynamicJsonPropertyNamingPolicy.JsonNamingPolicies.SnakeCaseJsonNamingPolicy</cref> that can be reused as needed.
+        /// Create a single <see cref="DynamicJsonPropertyNamingPolicy.JsonNamingPolicies.SnakeCaseJsonNamingPolicy" /> that can be reused as needed.
         /// </summary>
         public static readonly JsonNamingPolicy SnakeCase = new SnakeCaseJsonNamingPolicy();
 
         /// <summary>
-        /// ASP.NET provides an internal <cref>System.Text.Json.JsonCamelCaseNamingPolicy</cref> that can be used.
+        /// ASP.NET provides an internal <see cref="System.Text.Json.JsonNamingPolicy" /> that can be used.
         /// </summary>
         public static readonly JsonNamingPolicy CamelCase = JsonNamingPolicy.CamelCase;
     }
