@@ -5,7 +5,7 @@ using DynamicJsonPropertyNamingPolicy.Extensions;
 namespace DynamicJsonPropertyNamingPolicy.JsonNamingPolicies
 {
     /// <summary>
-    /// A <cref>System.Text.Json.JsonNamingPolicy</cref> that converts names to snake_case.
+    /// A <see cref="System.Text.Json.JsonNamingPolicy" /> that converts names to snake_case.
     /// </summary>
     public class SnakeCaseJsonNamingPolicy : JsonNamingPolicy
     {

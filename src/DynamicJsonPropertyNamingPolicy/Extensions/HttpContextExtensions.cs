@@ -6,7 +6,7 @@ using DynamicJsonPropertyNamingPolicy.JsonNamingPolicies;
 namespace DynamicJsonPropertyNamingPolicy.Extensions
 {
     /// <summary>
-    /// Extensions for the <cref>Microsoft.AspNetCore.Http.HttpContext</cref> class.
+    /// Extensions for the <see cref="Microsoft.AspNetCore.Http.HttpContext" /> class.
     /// </summary>
     public static class HttpContextExtensions
     {
@@ -22,10 +22,10 @@ namespace DynamicJsonPropertyNamingPolicy.Extensions
             new() { PropertyNamingPolicy = JsonNamingPolicyOptions.PascalCase };
 
         /// <summary>
-        /// Get the <cref>System.Text.Json.JsonSerializerOptions</cref> based on the request headers of the <paramref name="context" />.
+        /// Get the <see cref="System.Text.Json.JsonSerializerOptions" /> based on the request headers of the <paramref name="context" />.
         /// </summary>
-        /// <param name="context">The <cref>Microsoft.AspNetCore.Http.HttpContext</cref> to inspect.</param>
-        /// <returns>The <cref>System.Text.Json.JsonSerializerOptions</cref> that should be used based on the headers.</returns>
+        /// <param name="context">The <see cref="Microsoft.AspNetCore.Http.HttpContext" /> to inspect.</param>
+        /// <returns>The <see cref="System.Text.Json.JsonSerializerOptions" /> that should be used based on the headers.</returns>
         public static JsonSerializerOptions GetJsonSerializerOptions(this HttpContext context)
         {
             // Default to snake for backwards compatibility
@@ -39,10 +39,10 @@ namespace DynamicJsonPropertyNamingPolicy.Extensions
         }
 
         /// <summary>
-        /// Get the <cref>System.Text.Json.JsonNamingPolicy</cref> based on the request headers of the <paramref name="context" />.
+        /// Get the <see cref="System.Text.Json.JsonNamingPolicy" /> based on the request headers of the <paramref name="context" />.
         /// </summary>
-        /// <param name="context">The <cref>Microsoft.AspNetCore.Http.HttpContext</cref> to inspect.</param>
-        /// <returns>The <cref>System.Text.Json.JsonNamingPolicy</cref> that should be used based on the headers.</returns>
+        /// <param name="context">The <see cref="Microsoft.AspNetCore.Http.HttpContext" /> to inspect.</param>
+        /// <returns>The <see cref="System.Text.Json.JsonNamingPolicy" /> that should be used based on the headers.</returns>
         public static JsonNamingPolicy? GetJsonNamingPolicy(this HttpContext context)
         {
             return context.GetJsonSerializerOptions().PropertyNamingPolicy;
