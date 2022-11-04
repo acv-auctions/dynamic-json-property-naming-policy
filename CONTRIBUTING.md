@@ -33,3 +33,7 @@ dotnet test src/DynamicJsonPropertyNamingPolicy.Tests --settings coverletArgs.ru
 ### Documentation
 
 Every chunk of code that may be hard to understand has some comments above it. If you write some new code or change some part of the existing code in a way that it would not be functional without changing it's usages, it needs to be documented.
+
+### Releasing a new version
+
+If the code on `main` is ready to be published, just add a new tag with the format `releases/x.y.z` and push that to the repository. This will kick off the GitHub Action that builds, packages, and publishes a new version matching the tag used.
