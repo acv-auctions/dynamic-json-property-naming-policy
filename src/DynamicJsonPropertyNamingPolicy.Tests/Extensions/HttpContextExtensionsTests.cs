@@ -2,21 +2,21 @@ using System.Collections.Generic;
 using System.Text.Json;
 using Microsoft.AspNetCore.Http;
 using DynamicJsonPropertyNamingPolicy.Extensions;
-using DynamicJsonPropertyNamingPolicy.JsonNamingPolicies;
 using Xunit;
+using System;
 
 namespace DynamicJsonPropertyNamingPolicy.Tests.Extensions
 {
     public class HttpContextExtensionsTests
     {
-        public static IEnumerable<object[]> NamingOptionData
-            => new[]
+        public static TheoryData<string, JsonSerializerOptions> NamingOptionData =>
+            new()
             {
-                new object[] {"snake", HttpContextExtensions._snakeCaseOptions},
-                new object[] {"camel", HttpContextExtensions._camelCaseOptions},
-                new object[] {"pascal", HttpContextExtensions._pascalCaseOptions},
-                new object[] {"unclegeorge", HttpContextExtensions._snakeCaseOptions},
-                new object[] {null, HttpContextExtensions._snakeCaseOptions}
+                { "snake", HttpContextExtensions._snakeCaseOptions },
+                { "camel", HttpContextExtensions._camelCaseOptions },
+                { "pascal", HttpContextExtensions._pascalCaseOptions },
+                { "unclegeorge", HttpContextExtensions._snakeCaseOptions },
+                { null, HttpContextExtensions._snakeCaseOptions }
             };
 
         [Theory]
@@ -27,7 +27,7 @@ namespace DynamicJsonPropertyNamingPolicy.Tests.Extensions
             HttpContext context = new DefaultHttpContext();
             if (headerValue != null)
             {
-                context.Request.Headers.Add("json-naming-strategy", headerValue);
+                context.Request.Headers["json-naming-strategy"] = headerValue;
             }
 
             // Act
@@ -45,7 +45,7 @@ namespace DynamicJsonPropertyNamingPolicy.Tests.Extensions
             HttpContext context = new DefaultHttpContext();
             if (headerValue != null)
             {
-                context.Request.Headers.Add("json-naming-strategy", headerValue);
+                context.Request.Headers["json-naming-strategy"] = headerValue;
             }
 
             // Act
