@@ -42,7 +42,7 @@ namespace DynamicJsonPropertyNamingPolicy.Tests.JsonNamingPolicies
             {
                 Request = { Body = new MemoryStream(encoding.GetBytes(requestBody)) }
             };
-            httpContext.Request.Headers.Add("json-naming-strategy", policyName);
+            httpContext.Request.Headers["json-naming-strategy"] = policyName;
             httpContext.RequestServices = serviceProvider;
             InputFormatterContext context = new(
                 httpContext,

@@ -10,17 +10,17 @@ namespace DynamicJsonPropertyNamingPolicy.JsonNamingPolicies
         //TODO: Replace these custom ones with Microsoft ones when available
 
         /// <summary>
-        /// PascalCase is the ASP.NET default and internally uses `null` to represent it.
+        /// PascalCase is the .NET default and internally uses `null` to represent it.
         /// </summary>
         public static readonly JsonNamingPolicy? PascalCase = null;
 
         /// <summary>
-        /// Create a single <see cref="DynamicJsonPropertyNamingPolicy.JsonNamingPolicies.SnakeCaseJsonNamingPolicy" /> that can be reused as needed.
+        /// .NET provides an internal <see cref="System.Text.Json.JsonNamingPolicy" /> that can be used.
         /// </summary>
-        public static readonly JsonNamingPolicy SnakeCase = new SnakeCaseJsonNamingPolicy();
+        public static readonly JsonNamingPolicy SnakeCase = JsonNamingPolicy.SnakeCaseLower;
 
         /// <summary>
-        /// ASP.NET provides an internal <see cref="System.Text.Json.JsonNamingPolicy" /> that can be used.
+        /// .NET provides an internal <see cref="System.Text.Json.JsonNamingPolicy" /> that can be used.
         /// </summary>
         public static readonly JsonNamingPolicy CamelCase = JsonNamingPolicy.CamelCase;
     }
